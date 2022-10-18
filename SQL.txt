@@ -1,0 +1,20 @@
+use sakila
+
+select actor_id, first_name, last_name from sakila.actor
+select actor_id, first_name, last_name from sakila.actor where first_name = 'John'
+select actor_id, first_name, last_name from sakila.actor where last_name ='Neeson'
+select actor_id, first_name, last_name from sakila.actor where (actor_id % 10) = 0
+select description from sakila.film where film_id = 100
+select title, rating from sakila.film where rating != 'R' order by rating ASC
+select title, special_features from sakila.film where special_features like '%deleted scenes%'
+select last_name from sakila.actor group by last_name having count(last_name) < 2
+select last_name from sakila.actor group by last_name having count(last_name) > 1
+select actor_id from sakila.film_actor group by actor_id order by count(*) DESC
+select film_id, store_id from sakila.inventory where film_id = 1 and store_id = 1
+select avg(length) AS average from sakila.film
+select Count(description) from sakila.film where description like '%robot%' 
+select top 25 title, length from sakila.film order by (length) DESC
+select count(release_year) as '2010_movies' from sakila.film where release_year = '2010'
+select distinct count(country) as Distinct_countries from sakila.country 
+select name from sakila.language order by name
+select first_name, last_name from sakila.actor where last_name like '%son%' order by first_name
